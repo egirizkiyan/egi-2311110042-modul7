@@ -12,12 +12,8 @@ bool isPalindrome(string sentence) {
     for (char c : sentence) {
         if (isalnum(c)) {
             cleanedSentence += tolower(c);
+            charStack.push(tolower(c)); // Memasukkan karakter ke dalam stack saat membersihkan
         }
-    }
-
-    // Memasukkan karakter-karakter yang telah dibersihkan ke dalam stack
-    for (char c : cleanedSentence) {
-        charStack.push(c);
     }
 
     // Membalikkan kalimat menggunakan stack
@@ -32,14 +28,23 @@ bool isPalindrome(string sentence) {
 }
 
 int main() {
-    string sentence;
-    cout << "Masukkan kalimat:";
-    getline(cin, sentence);
+    string kalimat1 = "ini";
+    string kalimat2 = "telkom";
 
-    if (isPalindrome(sentence)) {
-        cout << "Kalimat tersebut adalah Telkom." << endl;
+    if (isPalindrome(kalimat1)) {
+        cout << "Kalimat :" << kalimat1 << 
+        " kalimat tersebut adalah palindrom." << endl;
     } else {
-        cout << "Kalimat tersebut bukan palindrom." << endl;
+        cout << "Kalimat :" << kalimat1 << 
+        " kalimat tersebut adalah bukan palindrom." << endl;
+    }
+
+    if (isPalindrome(kalimat2)) {
+        cout << "Kalimat :" << kalimat2 << 
+        " kalimat tersebut adalah palindrom." << endl;
+    } else {
+        cout << "Kalimat :" << kalimat2 << 
+        " kalimat tersebut adalah bukan palindrom." << endl;
     }
 
     return 0;
